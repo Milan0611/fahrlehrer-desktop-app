@@ -1,0 +1,28 @@
+{
+  "slides": [
+    {
+      "id": "folie_3",
+      "template": "HebenstreitTemplate",
+      "content": {
+        "title": "Driving, but how does it work?",
+        "subtitle": "1.0.2 The „Doing“ cycle",
+        "intro": "Millions of people drive from A to B every day. But how exactly does that work?",
+        "model_desc": "The traffic psychology model describes this interplay.",
+        "doing_cycle": {
+          "senses_upper": "absorb information",
+          "senses_lower": "SENSORY ORGANS",
+          "brain_upper": "Processing in the brain",
+          "brain_lower": "Conscious or automated decisions",
+          "muscle_upper": "React / Implement",
+          "muscle_lower": "MUSCLE"
+        },
+        "stats": [
+          {"value": "50 billion", "label": "Private transport"},
+          {"value": "2,73 billion", "label": "Rail transport"},
+          {"value": "8,9 billion", "label": "Bus & train"}
+        ],
+        "example": "Imagine a ball suddenly rolls into the street..."
+      }
+    }
+  ]
+}

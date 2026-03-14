@@ -8,6 +8,14 @@
         "subtitle": "1.0.2 Der „Macher“kreis nach Hebenstreit",
         "intro": "Täglich fahren Millionen von Menschen mit dem Auto von A nach B. Aber wie genau geht das eigentlich?",
         "model_desc": "Das verkehrspsychologische Modell beschreibt dieses Zusammenspiel.",
+        "doing_cycle": {
+          "senses_upper": "Informationen aufnehmen",
+          "senses_lower": "SINNESORGANE",
+          "brain_upper": "Verarbeitung im Gehirn",
+          "brain_lower": "Bewusste oder automatisierte Entscheidungen",
+          "muscle_upper": "Reagieren / Umsetzen",
+          "muscle_lower": "MUSKELN"
+        },
         "stats": [
           {"value": "50 Mrd.", "label": "Individualverkehr"},
           {"value": "2,73 Mrd.", "label": "Eisenbahnverkehr"},
