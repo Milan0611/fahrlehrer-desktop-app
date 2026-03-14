@@ -1,0 +1,20 @@
+{
+  "slides": [
+    {
+      "id": "folie_3",
+      "template": "HebenstreitTemplate",
+      "content": {
+        "title": "Fahren aber wie geht das?",
+        "subtitle": "1.0.2 Der „Macher“kreis nach Hebenstreit",
+        "intro": "Täglich fahren Millionen von Menschen mit dem Auto von A nach B. Aber wie genau geht das eigentlich?",
+        "model_desc": "Das verkehrspsychologische Modell beschreibt dieses Zusammenspiel.",
+        "stats": [
+          {"value": "50 Mrd.", "label": "Individualverkehr"},
+          {"value": "2,73 Mrd.", "label": "Eisenbahnverkehr"},
+          {"value": "8,9 Mrd.", "label": "Bus & Bahn"}
+        ],
+        "example": "Stell dir vor, plötzlich rollt ein Ball auf die Straße..."
+      }
+    }
+  ]
+}
