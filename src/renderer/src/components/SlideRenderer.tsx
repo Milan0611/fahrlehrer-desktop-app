@@ -1,23 +1,20 @@
 import HebenstreitTemplate from '../templates/HebenstreitTemplate';
-import lessonDataDe from '../lessons/l1_de.json';
-import lessonDataEn from '../lessons/l1_en.json';
+// Wir importieren nur noch das Wörterbuch und den Typen
+import { lessonTranslations, AvailableLanguage } from '../lessons/index';
 
-// Das Interface definiert, was der Renderer von der App.tsx erwartet
 interface SlideRendererProps {
   currentSlideId: string;
-  lang: "de" | "en";
+  lang: AvailableLanguage;
 }
 
 const SlideRenderer = ({ currentSlideId, lang }: SlideRendererProps) => {
-  // 1. Welche Sprache ist aktiv? Wir wählen die passende JSON-Datei.
-  const lessonData = lang === "de" ? lessonDataDe : lessonDataEn;
+  // Der Renderer holt sich extrem elegant genau das Paket, das zur Sprache passt
+  const lessonData = lessonTranslations[lang];
 
-  // 2. Wir suchen die passende Folie in der gewählten Datei
   const slide = lessonData.slides.find(s => s.id === currentSlideId);
 
   if (!slide) return <div className="text-white">Folie nicht gefunden</div>;
 
-  // 3. Wir laden das Template
   switch (slide.template) {
     case 'HebenstreitTemplate':
       return <HebenstreitTemplate data={slide.content} />;
