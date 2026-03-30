@@ -1,0 +1,10 @@
+Nächste To dos:
+-Die Architektur so aufbauen, dass neue Komponenten und Folien und Sprachen und Atoms möglichst einfach hinzufügbar sind, ohne dass Schlüsseldateien wie App.tsx 
+dafür angefasst werden müssen. 
+-Datenbank aufsetzen mit den Textinhalten 
+-Startseite, Navigation und Menü für die Nutzer erstellen
+-Lektion 1 so gut polishen wie es geht
+    -Dafür die 15 Layouts fertig machen und polishen. Dabei auch darauf achten wiederverwendbare Atoms zu erstellen
+    -Dafür auch die Votings und die dafür nötige Internetseite für die Handys erstellen
+    -Diese Seite soll sich mit der aktuellen Präsi synchronisieren und bei Auswahl einer nicht deutschen Sprache eine Version der Präsi mit der entsprechenden
+    Sprache anzeigen. Bei interaktiven Folien (Votings und ähnliches) kann man was eingeben.

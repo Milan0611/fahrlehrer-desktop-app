@@ -31,9 +31,9 @@ const HebenstreitTemplate = ({ data }: HebenstreitProps) => {
           </div>
         </div>
 
-        {/* Hier sitzt unser neues Atom! */}
+        {/* Hier sitzt unser neues Atom und bekommt seine Daten aus dem JSON! */}
         <div className="w-1/2 flex justify-center">
-          <Macherkreis />
+          <Macherkreis data={data.doing_cycle} />
         </div>
       </div>
 

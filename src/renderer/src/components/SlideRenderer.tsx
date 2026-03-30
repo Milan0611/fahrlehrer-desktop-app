@@ -1,5 +1,4 @@
 import HebenstreitTemplate from '../templates/HebenstreitTemplate';
-// Wir importieren nur noch das Wörterbuch und den Typen
 import { lessonTranslations, AvailableLanguage } from '../lessons/index';
 
 interface SlideRendererProps {
@@ -8,9 +7,8 @@ interface SlideRendererProps {
 }
 
 const SlideRenderer = ({ currentSlideId, lang }: SlideRendererProps) => {
-  // Der Renderer holt sich extrem elegant genau das Paket, das zur Sprache passt
+  // Der Renderer greift jetzt direkt auf das Wörterbuch zu!
   const lessonData = lessonTranslations[lang];
-
   const slide = lessonData.slides.find(s => s.id === currentSlideId);
 
   if (!slide) return <div className="text-white">Folie nicht gefunden</div>;

@@ -4,12 +4,13 @@ import { LangDropdown } from './components/atoms/LangDropdown';
 import { AvailableLanguage } from './lessons/index';
 
 function App() {
+  // Der State nutzt jetzt unseren neuen Typen
   const [lang, setLang] = useState<AvailableLanguage>("de");
 
   return (
     <div className="w-screen h-screen bg-gray-900 flex flex-col items-center justify-center relative">
       <div className="absolute top-6 right-8 z-50">
-        {/* Das Dropdown bekommt den State und eine Funktion zum Ändern */}
+        {/* Das Dropdown bekommt den State und die Setter-Funktion */}
         <LangDropdown currentLang={lang} onChange={setLang} />
       </div>
 
