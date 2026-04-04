@@ -1,22 +1,30 @@
 import { useState } from 'react';
-import SlideRenderer from './components/SlideRenderer';
+// import SlideRenderer from './components/SlideRenderer';
 import { LangDropdown } from './components/atoms/LangDropdown';
 import { AvailableLanguage } from './lessons/index';
+import { Dashboard } from './pages/Dashboard';
 
 function App() {
-  // lang enthält die Sprache und setLang ist eine setter-Funktion die useState von Haus aus mitgibt
-  const [lang, setLang] = useState<AvailableLanguage>("de"); // lang kann nur vom Typ "AvailableLanguage" sein
+  // lang enthält die Sprache und setLang ist die Setter-Funktion
+  const [lang, setLang] = useState<AvailableLanguage>("de");
 
   return (
-    <div className="w-screen h-screen bg-gray-900 flex flex-col items-center justify-center relative"> {/* Generelle Leinwand der App z.B. Hintergrundfarbe  */}
-      <div className="absolute top-6 right-8 z-50"> {/* Bereich für das Sprachen Dropdown Menü */}
-        {/* Das Dropdown bekommt den State und die Setter-Funktion */}
+    // Wir geben der App die volle Breite und Höhe ohne Einschränkungen
+    <div className="w-screen h-screen relative bg-surface overflow-hidden"> 
+      
+      {/* Dieses Dropdown schwebt aktuell noch über der neuen Top-Bar des Dashboards.
+        Später bauen wir diesen Button direkt in das Dashboard ein, 
+        für unseren Test lassen wir ihn aber erstmal hier oben rechts "fliegen".
+      */}
+
+      {/*
+      <div className="absolute top-4 right-20 z-50"> 
         <LangDropdown currentLang={lang} onChange={setLang} />
       </div>
-
-      <div className="w-[1024px] h-[768px] overflow-hidden"> {/* Bereich für die Folien */}
-        <SlideRenderer currentSlideId="folie_3" lang={lang} /> 
-      </div>
+      */}
+      
+      {/* Das Dashboard füllt nun den gesamten Bildschirm aus */}
+      <Dashboard /> 
     </div>
   );
 }

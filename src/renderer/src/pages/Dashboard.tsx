@@ -56,7 +56,11 @@ export const Dashboard = () => {
               <button className="font-headline font-bold text-xs tracking-widest text-on-surface hover:text-primary transition-colors">DE/EN</button>
               <span className="material-symbols-outlined text-on-surface cursor-pointer hover:text-primary transition-colors">notifications</span>
               <div className="flex items-center gap-3 pl-2">
-                <img alt="Instructor Avatar" className="w-8 h-8 bg-surface-container-highest grayscale hover:grayscale-0 transition-all duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRBRz37e1nvSBsXfrKEhanQQma4weeiI0ewlE1_gBdbrvLcmFhlsF4G0CT_YdcDM69hKkfbI81aXpn5h32HLTNrkL0RcEgKhwiScVjVOkguD1yVYklbJ4OgCJNCPCRGJn0634VPiTyAJVqwPhAMA3dyq6LjxPga658UMg90tXOim62CremD7HP-66CrGhsuqz_dzTTLOHt3KYGi04vlu_nNELdyZstB0j9HbLlDfJNq08AGb_QpWS1H4J3TzPOFdDPKTjE_64ahq9u" />
+                <img 
+                    alt="Instructor Avatar" 
+                    className="w-8 h-8 rounded-full border border-surface-container-highest transition-all duration-300" 
+                    src="https://ui-avatars.com/api/?name=Fahrlehrer&background=E5F330&color=424600&bold=true" 
+                />
                 <span className="material-symbols-outlined text-on-surface cursor-pointer">account_circle</span>
               </div>
             </div>

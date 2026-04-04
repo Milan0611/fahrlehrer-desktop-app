@@ -3,6 +3,22 @@
 /* In Tailwind v4 definieren wir eigene Farben direkt hier im CSS! */
 @theme {
   --color-next-level-green: #A3C614;
+
+  /* Die neuen Stitch-Farben */
+  --color-primary: #5a6000;
+  --color-primary-fixed: #e5f330;
+  --color-on-primary-fixed: #424600;
+  --color-surface: #f6f6f9;
+  --color-on-surface: #2d2f31;
+  --color-surface-container: #e7e8eb;
+  --color-surface-container-highest: #dbdde0;
+  --color-inverse-surface: #0c0e10;
+  --color-on-surface-variant: #5a5c5e;
+  
+  /* Die neuen Stitch-Schriften */
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Manrope", sans-serif;
+  --font-label: "Inter", sans-serif;
 }
 
 @layer base {
