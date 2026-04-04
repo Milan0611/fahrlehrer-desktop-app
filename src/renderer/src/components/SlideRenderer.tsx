@@ -1,23 +1,28 @@
 import HebenstreitTemplate from '../templates/HebenstreitTemplate';
 import { lessonTranslations, AvailableLanguage } from '../lessons/index';
 
+// Interface für den SlideRenderer: Enthält eine Slide ID und eine Sprache
 interface SlideRendererProps {
   currentSlideId: string;
   lang: AvailableLanguage;
 }
 
+// Der SlideRenderer muss mit Slide Id und Sprache aufgerufen werden
 const SlideRenderer = ({ currentSlideId, lang }: SlideRendererProps) => {
-  // Der Renderer greift jetzt direkt auf das Wörterbuch zu!
+
+  // Es wird sich mit den beiden Parametern sofort die Datei in der richtigen Sprache und die Folien-ID geholt und abgespeichert
   const lessonData = lessonTranslations[lang];
   const slide = lessonData.slides.find(s => s.id === currentSlideId);
 
+  // Wenn es die Folie mit der ID nicht gibt, kommt eine Meldung
   if (!slide) return <div className="text-white">Folie nicht gefunden</div>;
 
+  // Ein switch für alle verfügbaren Templates. Je nachdem welches Template für die Folie in der JSON festgelegt ist, wird ein anderes verwendet )aktuell nur eins vorhanden)
   switch (slide.template) {
     case 'HebenstreitTemplate':
-      return <HebenstreitTemplate data={slide.content} />;
+      return <HebenstreitTemplate data={slide.content} />; // Lädt das Template mit den Daten aus der JSON der Folie
     default:
-      return <div className="text-white">Unbekanntes Template: {slide.template}</div>;
+      return <div className="text-white">Unbekanntes Template: {slide.template}</div>; // Wenn das Template nicht gefunden wurde
   }
 };
 

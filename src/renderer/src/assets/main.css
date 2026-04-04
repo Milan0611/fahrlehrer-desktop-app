@@ -13,3 +13,26 @@
     background-color: #111827;
   }
 }
+
+@layer utilities {
+  .kinetic-gradient {
+    background: linear-gradient(135deg, #5A6000 0%, #E5F330 100%);
+  }
+  .slant-bg {
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+  }
+  .asymmetric-clip {
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 95% 100%, 0 100%);
+  }
+}
+
+/* Spezielles Design für die Scrollbar in der Sidebar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #acadaf;
+}

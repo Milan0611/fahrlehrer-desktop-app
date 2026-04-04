@@ -1,16 +1,21 @@
 import { AvailableLanguage, availableLanguages } from '../../lessons/index';
 
+// Interface für den Sprachen-Dropdownmenü Atom: Enthält die aktuelle Sprache und
 interface LangDropdownProps {
   currentLang: AvailableLanguage;
-  onChange: (newLang: AvailableLanguage) => void;
+
+  // Wer auch immer diese LangDropdown-Komponente benutzen will (z.B. App.tsx), muss eine Funktion, die Variablen vom Typ AvailableLanguage ("de" und "en") als Argument akzeptiert,
+  // (z.B. setLang) übergeben. Void also gibt die Funktion nichts zurück
+  onChange: (newLang: AvailableLanguage) => void; 
 }
 
+// LangDropdown muss mit der aktuellen Sprache und onChange erzeugt werden
 export const LangDropdown = ({ currentLang, onChange }: LangDropdownProps) => {
   return (
     <div className="relative inline-block">
       <select
         value={currentLang}
-        onChange={(e) => onChange(e.target.value as AvailableLanguage)}
+        onChange={(e) => onChange(e.target.value as AvailableLanguage)} 
         className="appearance-none bg-gray-800 text-white font-bold py-2 pl-4 pr-10 rounded-lg shadow-lg border-2 border-next-level-green cursor-pointer focus:outline-none"
       >
         {/* Wir generieren für jede Sprache im Wörterbuch automatisch eine Option */}
