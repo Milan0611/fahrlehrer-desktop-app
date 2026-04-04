@@ -1,8 +1,9 @@
 import { useState } from 'react';
 // import SlideRenderer from './components/SlideRenderer';
-import { LangDropdown } from './components/atoms/LangDropdown';
+// import { LangDropdown } from './components/atoms/LangDropdown';
 import { AvailableLanguage } from './lessons/index';
-import { Dashboard } from './pages/Dashboard';
+// import { Dashboard } from './pages/Dashboard';
+import { SlideViewer } from './pages/SlideViewer';
 
 function App() {
   // lang enthält die Sprache und setLang ist die Setter-Funktion
@@ -22,9 +23,9 @@ function App() {
         <LangDropdown currentLang={lang} onChange={setLang} />
       </div>
       */}
-      
-      {/* Das Dashboard füllt nun den gesamten Bildschirm aus */}
-      <Dashboard /> 
+
+      {/* Der SlideViewer füllt den gesamten Bildschirm aus */}
+      <SlideViewer /> 
     </div>
   );
 }
