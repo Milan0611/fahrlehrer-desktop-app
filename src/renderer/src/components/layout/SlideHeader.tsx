@@ -12,7 +12,7 @@ export const SlideHeader = ({ lang, onLangChange }: SlideHeaderProps) => {
     <header className="bg-[#F6F6F9] dark:bg-[#0C0E10] flex justify-between items-center px-6 py-4 w-full z-50">
       <div className="flex items-center gap-4">
         <span className="text-xl font-black uppercase text-[#2D2F31] dark:text-white font-headline tracking-tighter">
-          Module 01: Traffic Laws
+          Führerscheinklasse B
         </span>
       </div>
       <div className="flex items-center gap-6">

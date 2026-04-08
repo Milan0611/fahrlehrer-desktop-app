@@ -1,3 +1,4 @@
+// War mal der Footer bei dem SlideViewer aber wurde rausgenommen
 export const SlideFooter = () => {
   return (
     <div className="mt-8 border-t border-outline/10 pt-12 flex justify-between items-center w-full">

@@ -8,7 +8,7 @@ export const SlideSidebar = ({ currentSlideId, onSlideSelect }: SlideSidebarProp
   const dummySlides = Array.from({ length: 19 }, (_, i) => i + 2);
 
   return (
-    <aside className="bg-[#E7E8EB] dark:bg-[#0C0E10] flex flex-col w-80 h-full overflow-y-auto border-r-0 z-40">
+    <aside className="bg-[#E7E8EB] dark:bg-[#0C0E10] flex flex-col w-60 h-full overflow-y-auto border-r-0 z-40">
       <div className="p-6 sticky top-0 bg-[#E7E8EB] dark:bg-[#0C0E10] z-10">
         <h2 className="text-lg font-black font-['Space_Grotesk'] text-[#2D2F31] dark:text-white uppercase tracking-tighter">Lesson Progress</h2>
         <p className="text-[10px] font-label font-bold uppercase tracking-[0.2em] text-[#5A6000] dark:text-[#E5F330] mt-1">Kinetic Precision Mode</p>
