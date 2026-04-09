@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="w-screen h-screen relative bg-surface overflow-hidden"> 
       {/* Das Dropdown ist hier verschwunden. Wir geben stattdessen die Setter-Funktion weiter */}
-      <SlideViewer lang={lang} onLangChange={setLang} /> 
+      <SlideViewer /> 
     </div>
   );
 }
