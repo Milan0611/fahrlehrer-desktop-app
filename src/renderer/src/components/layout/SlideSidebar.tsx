@@ -1,10 +1,16 @@
+// Interface für die SlideSidebar: Beinhaltet die aktuelle SlideId und die Setter.Funktion, um sie SlideId zu ändern/setzen
+// Ein Interface in TypeScript/react definiert genau, welche welche Daten diese Komponente von anderen (oberen) Komponenten empfangen darf 
+// SlideViewer.tsx erstellt eine Ebene drüber den useState für die SlideId und übergibt diesen über das Interface an SlideSidebar.tsx
 interface SlideSidebarProps {
-    currentSlideId: string;
-    onSlideSelect: (id: string) => void;
+    currentSlideId: string; // muss ein string sein
+    onSlideSelect: (id: string) => void; // muss einen string entgegennehmen (id) und gibt nichts zurück (void)
 }
 
+// Die SlideSidebar wird als Objekt, dass von dem Interface SlideSidebarProps erbt, erstellt  
+// Dadurch können wir direkt auf die von oben übergebenen Elemente (SlideId useState von SlideViewer.tsx, also currentSlideId und onSlideSelect) zugreifen
 export const SlideSidebar = ({ currentSlideId, onSlideSelect }: SlideSidebarProps) => {
-  // Wir nutzen die Dummy-Slides vorerst weiter, um die Liste zu füllen
+
+  // Die Dummy-Slides müssen raus
   const dummySlides = Array.from({ length: 19 }, (_, i) => i + 2);
 
   return (
@@ -17,7 +23,7 @@ export const SlideSidebar = ({ currentSlideId, onSlideSelect }: SlideSidebarProp
       <nav className="flex-1 px-0">
         {/* Folie 1 (Fest verdrahtet zum Testen) */}
         <button 
-          onClick={() => onSlideSelect("folie_1")}
+          onClick={() => onSlideSelect("folie_1")} // "() =>" sorgt, dafür dass der Befehl erst beim Klick und nicht sofort ausgeführt wird
           className={`w-full flex items-center gap-4 px-6 py-4 font-bold transition-all duration-200 ease-in-out group ${
             currentSlideId === "folie_1" 
               ? "bg-[#E5F330] text-[#424600] border-r-4 border-[#5A6000]" 

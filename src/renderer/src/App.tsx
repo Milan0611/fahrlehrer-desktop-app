@@ -1,9 +1,8 @@
-import { useState } from 'react';
-import { AvailableLanguage } from './lessons/index';
+// import { useState } from 'react';
+// import { AvailableLanguage } from './lessons/index';
 import { SlideViewer } from './pages/SlideViewer';
 
 function App() {
-  const [lang, setLang] = useState<AvailableLanguage>("de");
 
   return (
     <div className="w-screen h-screen relative bg-surface overflow-hidden"> 

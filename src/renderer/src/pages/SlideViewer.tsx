@@ -9,7 +9,7 @@ export const SlideViewer = () => {
 
   // Der useState für die Sprache wurde von App.tsx hier runter gezogen, da Spracheänderung nur die Folien und nicht die ganze App betreffen
   // Der useStae kann aber nicht tiefer gehen, da SlideHeader (mit dem LangDropdown) und SlideRenderer (mit den Folieninhalten) miteinander kommunierzieren müssen 
-  // und SlideViewer der nächste gemeinsame parent istö
+  // und SlideViewer der nächste gemeinsame parent ist
   const [lang, setLang] = useState<AvailableLanguage>("de");
 
   return (
