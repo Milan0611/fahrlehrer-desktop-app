@@ -1,3 +1,5 @@
+import { lessonTranslations, AvailableLanguage } from '../../lessons/index';
+
 // Interface für die SlideSidebar: Beinhaltet die aktuelle SlideId und die Setter.Funktion, um sie SlideId zu ändern/setzen
 // Ein Interface in TypeScript/react definiert genau, welche welche Daten diese Komponente von anderen (oberen) Komponenten empfangen darf 
 // SlideViewer.tsx erstellt eine Ebene drüber den useState für die SlideId und übergibt diesen über das Interface an SlideSidebar.tsx
@@ -13,6 +15,23 @@ export const SlideSidebar = ({ currentSlideId, onSlideSelect }: SlideSidebarProp
   // Die Dummy-Slides müssen raus
   const dummySlides = Array.from({ length: 19 }, (_, i) => i + 2);
 
+  // Enthält alle Daten der aktuellen Lektion, in diesem Fall l1_de.json
+  const lessonData = lessonTranslations["de"]; 
+
+  // Holt die Anzahl der Folien für die aktuelle Lektion
+  const anzahlFolien = lessonData.slides.length;
+
+  // Erstellt ein Array mit anzahlFolien als Länge und fängt ab 1 an und wird pro Eintrag um 1 erhöht
+  // Diese Array ist dafür da, da mit man .map drauf aufrufen kann, da klassische Schleifen im HTML Code nicht nutzbar sind
+  const folienArray = Array.from({ length: anzahlFolien}, (_, i) => i + 1);
+
+  let folienIDs = folienArray.toString;
+
+  for (let i = 0; i <= anzahlFolien; i++) {
+    folienIDs[i] = lessonData.slides[i].id;
+  }
+
+
   return (
     <aside className="bg-[#E7E8EB] dark:bg-[#0C0E10] flex flex-col w-60 h-full overflow-y-auto border-r-0 z-40">
       <div className="p-6 sticky top-0 bg-[#E7E8EB] dark:bg-[#0C0E10] z-10">
@@ -21,22 +40,12 @@ export const SlideSidebar = ({ currentSlideId, onSlideSelect }: SlideSidebarProp
       </div>
       
       <nav className="flex-1 px-0">
-        {/* Folie 1 (Fest verdrahtet zum Testen) */}
-        <button 
-          onClick={() => onSlideSelect("folie_1")} // "() =>" sorgt, dafür dass der Befehl erst beim Klick und nicht sofort ausgeführt wird
-          className={`w-full flex items-center gap-4 px-6 py-4 font-bold transition-all duration-200 ease-in-out group ${
-            currentSlideId === "folie_1" 
-              ? "bg-[#E5F330] text-[#424600] border-r-4 border-[#5A6000]" 
-              : "text-[#2D2F31] dark:text-[#ACADAF] opacity-70 hover:bg-[#DBDDE0] dark:hover:bg-[#1A1C1E]"
-          }`}
-        >
-          <span className="material-symbols-outlined text-[18px]" style={currentSlideId === "folie_1" ? { fontVariationSettings: "'FILL' 1" } : {}}>play_arrow</span>
-          <span className="font-['Manrope'] text-sm text-left">Folie 1: Dummytitel</span>
-        </button>
         
-        {/* Generierte restliche Folien */}
+        {/* Generiert Folien in der Sidebar*/}
         <div className="flex flex-col">
-          {dummySlides.map((num) => {
+          
+          {/* Ruft für jede in der aktuzellen Lektion enthaltenen Folie den HTML Code darunter auf: Erzeugt für jede Folie ein Button, um diese auszuwählen */}
+          {folienArray.map((num) => {
             const slideId = `folie_${num}`;
             const isActive = currentSlideId === slideId;
 
