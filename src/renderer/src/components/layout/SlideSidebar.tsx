@@ -1,57 +1,42 @@
-import { lessonTranslations, AvailableLanguage } from '../../lessons/index';
+import { lessonTranslations } from '../../lessons/index';
 
-// Interface für die SlideSidebar: Beinhaltet die aktuelle SlideId und die Setter.Funktion, um sie SlideId zu ändern/setzen
-// Ein Interface in TypeScript/react definiert genau, welche welche Daten diese Komponente von anderen (oberen) Komponenten empfangen darf 
-// SlideViewer.tsx erstellt eine Ebene drüber den useState für die SlideId und übergibt diesen über das Interface an SlideSidebar.tsx
 interface SlideSidebarProps {
-    currentSlideId: string; // muss ein string sein
-    onSlideSelect: (id: string) => void; // muss einen string entgegennehmen (id) und gibt nichts zurück (void)
+  currentSlideId: string;
+  onSlideSelect: (id: string) => void;
 }
 
-// Die SlideSidebar wird als Objekt, dass von dem Interface SlideSidebarProps erbt, erstellt  
-// Dadurch können wir direkt auf die von oben übergebenen Elemente (SlideId useState von SlideViewer.tsx, also currentSlideId und onSlideSelect) zugreifen
 export const SlideSidebar = ({ currentSlideId, onSlideSelect }: SlideSidebarProps) => {
 
-  // Die Dummy-Slides müssen raus
-  const dummySlides = Array.from({ length: 19 }, (_, i) => i + 2);
-
-  // Enthält alle Daten der aktuellen Lektion, in diesem Fall l1_de.json
+  // Wir holen uns die echten Lektionsdaten
   const lessonData = lessonTranslations["de"]; 
 
-  // Holt die Anzahl der Folien für die aktuelle Lektion
-  const anzahlFolien = lessonData.slides.length;
-
-  // Erstellt ein Array mit anzahlFolien als Länge und fängt ab 1 an und wird pro Eintrag um 1 erhöht
-  // Diese Array ist dafür da, da mit man .map drauf aufrufen kann, da klassische Schleifen im HTML Code nicht nutzbar sind
-  const folienArray = Array.from({ length: anzahlFolien}, (_, i) => i + 1);
-
-  let folienIDs = folienArray.toString;
-
-  for (let i = 0; i <= anzahlFolien; i++) {
-    folienIDs[i] = lessonData.slides[i].id;
-  }
-
+  // ALLES andere (folienArray, folienIDs, for-Schleife) haben wir gelöscht!
+  // Wir brauchen es nicht, weil lessonData.slides schon ein perfektes Array ist.
 
   return (
-    <aside className="bg-[#E7E8EB] dark:bg-[#0C0E10] flex flex-col w-60 h-full overflow-y-auto border-r-0 z-40">
+    <aside className="bg-[#E7E8EB] dark:bg-[#0C0E10] flex flex-col w-80 h-full overflow-y-auto border-r-0 z-40">
       <div className="p-6 sticky top-0 bg-[#E7E8EB] dark:bg-[#0C0E10] z-10">
-        <h2 className="text-lg font-black font-['Space_Grotesk'] text-[#2D2F31] dark:text-white uppercase tracking-tighter">Lesson Progress</h2>
-        <p className="text-[10px] font-label font-bold uppercase tracking-[0.2em] text-[#5A6000] dark:text-[#E5F330] mt-1">Kinetic Precision Mode</p>
+        <h2 className="text-lg font-black font-['Space_Grotesk'] text-[#2D2F31] dark:text-white uppercase tracking-tighter">Lektion 01:</h2>
+        <p className="text-[10px] font-label font-bold uppercase tracking-[0.2em] text-[#5A6000] dark:text-[#E5F330] mt-1">Grundlagen der Verkehrssicherheit</p>
       </div>
       
       <nav className="flex-1 px-0">
-        
-        {/* Generiert Folien in der Sidebar*/}
         <div className="flex flex-col">
           
-          {/* Ruft für jede in der aktuzellen Lektion enthaltenen Folie den HTML Code darunter auf: Erzeugt für jede Folie ein Button, um diese auszuwählen */}
-          {folienArray.map((num) => {
-            const slideId = `folie_${num}`;
+          {/* Wir mappen JETZT DIREKT über das Array aus deiner JSON-Datei! */}
+          {/* Jeder Durchlauf gibt uns ein komplettes 'slide'-Objekt und seinen 'index' (0, 1, 2...) */}
+          {lessonData.slides.map((slide, index) => {
+            
+            // Wir ziehen uns die echte ID direkt aus dem JSON-Eintrag
+            const slideId = slide.id;
             const isActive = currentSlideId === slideId;
+            
+            // Für die Nummerierung in der UI rechnen wir einfach index + 1
+            const folienNummer = index + 1;
 
             return (
               <button 
-                key={num} 
+                key={slideId} 
                 onClick={() => onSlideSelect(slideId)}
                 className={`w-full flex items-center gap-4 px-6 py-4 font-bold transition-all duration-200 ease-in-out group ${
                   isActive 
@@ -60,10 +45,15 @@ export const SlideSidebar = ({ currentSlideId, onSlideSelect }: SlideSidebarProp
                 }`}
               >
                 <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform" style={isActive ? { fontVariationSettings: "'FILL' 1" } : {}}>play_arrow</span>
-                <span className="font-['Manrope'] text-sm text-left font-semibold">Folie {num}: Dummytitel</span>
+                
+                {/* Hier kommt jetzt deine echte Foliennummer UND der echte Titel aus dem JSON rein! */}
+                <span className="font-['Manrope'] text-sm text-left font-semibold">
+                  Folie {folienNummer}: {slide.content.title}
+                </span>
               </button>
             )
           })}
+          
         </div>
       </nav>
       

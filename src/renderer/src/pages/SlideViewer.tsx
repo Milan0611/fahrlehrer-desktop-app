@@ -4,7 +4,11 @@ import { SlideSidebar } from '../components/layout/SlideSidebar';
 import SlideRenderer from '../components/SlideRenderer';
 import { AvailableLanguage } from '../lessons/index';
 
-export const SlideViewer = () => {
+interface SlideViewerProps {
+  onCloseLesson: () => void;
+}
+
+export const SlideViewer = ({ onCloseLesson }: SlideViewerProps) => {
   const [currentSlideId, setCurrentSlideId] = useState("folie_3");
 
   // Der useState für die Sprache wurde von App.tsx hier runter gezogen, da Spracheänderung nur die Folien und nicht die ganze App betreffen
@@ -17,7 +21,7 @@ export const SlideViewer = () => {
 
         {/* Hier wird sowohl die aktuelle Sprache, als auch die Setter-Funktion zum setzen der Sprache übergeben, 
         da man mit dem LangDropdown im SlideHeader die Sprache ändern können soll */}
-      <SlideHeader lang={lang} onLangChange={setLang} />
+      <SlideHeader lang={lang} onLangChange={setLang} onClose={onCloseLesson} />
 
       <div className="flex flex-1 overflow-hidden"> 
         {/* Hier wird sowohl die aktuelle SlideId, als auch die Setter-Funktion zum setzen der SlideId übergeben, 

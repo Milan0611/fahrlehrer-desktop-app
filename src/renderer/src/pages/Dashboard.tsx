@@ -1,4 +1,9 @@
-export const Dashboard = () => {
+// Interface für den Empfang der Prop
+interface DashboardProps {
+  onStartLesson: () => void;
+}
+
+export const Dashboard = ({ onStartLesson }: DashboardProps) => {
   return (
     <div className="bg-surface font-body text-on-surface flex min-h-[1024px]">
       <aside className="fixed left-0 top-0 h-full flex flex-col bg-slate-50 dark:bg-[#0C0E10] w-64 border-r-0 rounded-none z-50">
@@ -95,7 +100,7 @@ export const Dashboard = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             
-            <div className="bg-white p-6 border-l-4 border-primary-fixed group hover:border-primary transition-all cursor-pointer shadow-sm flex flex-col justify-between min-h-[200px]">
+            <div onClick={onStartLesson} className="bg-white p-6 border-l-4 border-primary-fixed group hover:border-primary transition-all cursor-pointer shadow-sm flex flex-col justify-between min-h-[200px]">
               <div className="flex justify-between items-start">
                 <span className="material-symbols-outlined text-4xl text-primary transition-colors">psychology</span>
                 <span className="font-headline font-black text-2xl text-surface-container">01</span>
