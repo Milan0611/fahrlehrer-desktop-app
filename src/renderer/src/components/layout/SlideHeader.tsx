@@ -1,5 +1,5 @@
 import { LangDropdown } from '../atoms/LangDropdown';
-import { AvailableLanguage } from '../../lessons/index';
+import { AvailableLanguage } from '../../lessons/LessonLanguages';
 
 // Der Header definiert, was er von oben erwartet
 interface SlideHeaderProps {
@@ -28,7 +28,8 @@ export const SlideHeader = ({ lang, onLangChange, onClose }: SlideHeaderProps) =
           <button className="p-2 hover:bg-[#E1E2E6] dark:hover:bg-[#2D2F31] transition-colors scale-95 duration-150">
             <span className="material-symbols-outlined text-[#757779] dark:text-[#ACADAF]">help_outline</span>
           </button>
-          <button onClick={onClose} className="p-2 hover:bg-[#E1E2E6] dark:hover:bg-[#2D2F31] transition-colors scale-95 duration-150">
+          <button onClick={onClose} 
+          className="p-2 hover:bg-[#E1E2E6] dark:hover:bg-[#2D2F31] transition-colors scale-95 duration-150">
             <span className="material-symbols-outlined text-[#757779] dark:text-[#ACADAF]">close</span>
           </button>
         </div>

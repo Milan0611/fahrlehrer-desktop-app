@@ -1,11 +1,12 @@
-import { lessonTranslations } from '../../lessons/index';
+import { lessonTranslations } from '../../lessons/LessonLanguages';
 
 interface SlideSidebarProps {
+  currentLessonId: number;
   currentSlideId: string;
   onSlideSelect: (id: string) => void;
 }
 
-export const SlideSidebar = ({ currentSlideId, onSlideSelect }: SlideSidebarProps) => {
+export const SlideSidebar = ({ currentLessonId, currentSlideId, onSlideSelect }: SlideSidebarProps) => {
 
   // Wir holen uns die echten Lektionsdaten
   const lessonData = lessonTranslations["de"]; 

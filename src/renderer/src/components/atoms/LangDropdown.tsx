@@ -1,4 +1,4 @@
-import { AvailableLanguage, availableLanguages } from '../../lessons/index';
+import { AvailableLanguage, availableLanguages } from '../../lessons/LessonLanguages';
 
 // Interface für den Sprachen-Dropdownmenü Atom: Enthält die aktuelle Sprache und
 interface LangDropdownProps {

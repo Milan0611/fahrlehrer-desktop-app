@@ -3,24 +3,27 @@ import { Dashboard } from './pages/Dashboard';
 import { SlideViewer } from './pages/SlideViewer';
 
 function App() {
-
-  // Der State merkt sich die aktuelle Seite. Wert kann entweder "dashboard" oder "slideViewer" sein. Startwert ist "dashboard".
   const [currentView, setCurrentView] = useState<"dashboard" | "slideViewer">("dashboard");
+  
+  // NEU: Das Kurzzeitgedächtnis für die angeklickte Lektion. (Startwert "l1" als Fallback)
+  const [activeLesson, setActiveLesson] = useState<number>(1);
 
   return (
     <div className="w-screen h-screen relative bg-surface overflow-hidden"> 
-      {/* Wenn der State "dashboard" ist, zeige das Dashboard... */}
       {currentView === "dashboard" && (
         <Dashboard 
-          // Wir übergeben eine Fernbedienung, um die Ansicht zu wechseln
-          onStartLesson={() => setCurrentView("slideViewer")} 
+          // Die Fernbedienung nimmt jetzt einen Parameter (lessonId) entgegen!
+          onStartLesson={(lessonId) => {
+            setActiveLesson(lessonId);     // 1. Merke dir die ID ("l1", "l2", etc.)
+            setCurrentView("slideViewer"); // 2. Wechsle das Bild
+          }} 
         />
       )}
 
-      {/* ... wenn der State "slideViewer" ist, zeige den Viewer! */}
       {currentView === "slideViewer" && (
         <SlideViewer 
-          // Und hier die Fernbedienung für den Weg zurück
+          // Wir geben die gemerkte ID an den Viewer weiter!
+          lessonId={activeLesson} 
           onCloseLesson={() => setCurrentView("dashboard")} 
         />
       )}

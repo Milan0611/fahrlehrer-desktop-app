@@ -1,14 +1,15 @@
 import HebenstreitTemplate from '../templates/HebenstreitTemplate';
-import { lessonTranslations, AvailableLanguage } from '../lessons/index';
+import { lessonTranslations, AvailableLanguage } from '../lessons/LessonLanguages';
 
 // Interface für den SlideRenderer: Enthält eine Slide ID und eine Sprache
 interface SlideRendererProps {
+  currentLessonId: number;
   currentSlideId: string;
   lang: AvailableLanguage;
 }
 
 // Der SlideRenderer muss mit Slide Id und Sprache aufgerufen werden
-const SlideRenderer = ({ currentSlideId, lang }: SlideRendererProps) => {
+const SlideRenderer = ({ currentLessonId, currentSlideId, lang }: SlideRendererProps) => {
 
   // Es wird sich mit den beiden Parametern sofort die Datei in der richtigen Sprache und die Folien-ID geholt und abgespeichert
   const lessonData = lessonTranslations[lang];

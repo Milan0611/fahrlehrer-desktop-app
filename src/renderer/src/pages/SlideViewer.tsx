@@ -2,13 +2,14 @@ import { useState } from 'react';
 import { SlideHeader } from '../components/layout/SlideHeader';
 import { SlideSidebar } from '../components/layout/SlideSidebar';
 import SlideRenderer from '../components/SlideRenderer';
-import { AvailableLanguage } from '../lessons/index';
+import { AvailableLanguage } from '../lessons/LessonLanguages';
 
 interface SlideViewerProps {
+  lessonId: number; 
   onCloseLesson: () => void;
 }
 
-export const SlideViewer = ({ onCloseLesson }: SlideViewerProps) => {
+export const SlideViewer = ({ lessonId, onCloseLesson }: SlideViewerProps) => {
   const [currentSlideId, setCurrentSlideId] = useState("folie_3");
 
   // Der useState für die Sprache wurde von App.tsx hier runter gezogen, da Spracheänderung nur die Folien und nicht die ganze App betreffen
@@ -21,12 +22,16 @@ export const SlideViewer = ({ onCloseLesson }: SlideViewerProps) => {
 
         {/* Hier wird sowohl die aktuelle Sprache, als auch die Setter-Funktion zum setzen der Sprache übergeben, 
         da man mit dem LangDropdown im SlideHeader die Sprache ändern können soll */}
-      <SlideHeader lang={lang} onLangChange={setLang} onClose={onCloseLesson} />
+      <SlideHeader 
+      lang={lang} 
+      onLangChange={setLang} 
+      onClose={onCloseLesson} />
 
       <div className="flex flex-1 overflow-hidden"> 
         {/* Hier wird sowohl die aktuelle SlideId, als auch die Setter-Funktion zum setzen der SlideId übergeben, 
         da man beim welcheln der Folien die SlideId ändern kann und dadurch dann der entsprechende Ihalt passend zur neuen SlideId angezeigt wird */}
         <SlideSidebar 
+          currentLessonId={lessonId}
           currentSlideId={currentSlideId} 
           onSlideSelect={setCurrentSlideId} 
         /> 
@@ -41,7 +46,10 @@ export const SlideViewer = ({ onCloseLesson }: SlideViewerProps) => {
             
             {/* Hier wird nur die aktuelle SlideId und Sprache ohen Setter-Funktionen übergeben, da der SlideRenderer diese Informationen nur braucht, 
             um abzulesen welche Folie in welcher Sprache angezeigt werden soll*/}
-            <SlideRenderer currentSlideId={currentSlideId} lang={lang} />
+            <SlideRenderer
+            currentLessonId={lessonId} 
+            currentSlideId={currentSlideId} 
+            lang={lang} />
             
           </div>
         </main>
