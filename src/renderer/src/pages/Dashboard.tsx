@@ -1,7 +1,24 @@
-// Interface für den Empfang der Prop
 interface DashboardProps {
   onStartLesson: (lessonId: number) => void;
 }
+
+// Daten-Array für die 14 Module der Klasse B
+const theoryModules = [
+  { id: 1, title: "Persönliche Voraussetzungen", icon: "psychology" },
+  { id: 2, title: "Rechtliche Rahmenbedingungen", icon: "gavel" },
+  { id: 3, title: "Verkehrszeichen", icon: "signpost" },
+  { id: 4, title: "Straßenverkehrssystem", icon: "hub" },
+  { id: 5, title: "Vorfahrt", icon: "alt_route" },
+  { id: 6, title: "Verkehrsregelungen", icon: "traffic" },
+  { id: 7, title: "Geschwindigkeit", icon: "speed" },
+  { id: 8, title: "Abstand und Überholen", icon: "space_bar" },
+  { id: 9, title: "Verkehrsbeobachtung", icon: "visibility" },
+  { id: 10, title: "Ruhender Verkehr", icon: "local_parking" },
+  { id: 11, title: "Verhalten in besonderen Situationen", icon: "warning" },
+  { id: 12, title: "Lebenslanges Lernen", icon: "school" },
+  { id: 13, title: "Technische Bedingungen", icon: "build" },
+  { id: 14, title: "Fahren mit Anhänger", icon: "rv_hookup" }
+];
 
 export const Dashboard = ({ onStartLesson }: DashboardProps) => {
   return (
@@ -100,53 +117,26 @@ export const Dashboard = ({ onStartLesson }: DashboardProps) => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             
-            <div onClick={() => onStartLesson(1)} 
-            className="bg-white p-6 border-l-4 border-primary-fixed group hover:border-primary transition-all cursor-pointer shadow-sm flex flex-col justify-between min-h-[200px]">
-              <div className="flex justify-between items-start">
-                <span className="material-symbols-outlined text-4xl text-primary transition-colors">psychology</span>
-                <span className="font-headline font-black text-2xl text-surface-container">01</span>
-              </div>
-              <div>
-                <h5 className="font-headline font-bold text-lg uppercase tracking-tighter mb-2 leading-tight">Persönliche Voraussetzungen</h5>
-                <p className="text-[10px] text-primary font-bold uppercase tracking-widest">Modul starten</p>
-              </div>
-            </div>
-
-            <div className="bg-white p-6 border-l-4 border-surface-container group hover:border-primary transition-all cursor-pointer shadow-sm flex flex-col justify-between min-h-[200px]">
-              <div className="flex justify-between items-start">
-                <span className="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">gavel</span>
-                <span className="font-headline font-black text-2xl text-surface-container">02</span>
-              </div>
-              <div>
-                <h5 className="font-headline font-bold text-lg uppercase tracking-tighter mb-2 leading-tight">Rechtliche Rahmenbedingungen</h5>
-                <p className="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Gesperrt</p>
-              </div>
-            </div>
-
-            <div className="bg-white p-6 border-l-4 border-surface-container group hover:border-primary transition-all cursor-pointer shadow-sm flex flex-col justify-between min-h-[200px]">
-              <div className="flex justify-between items-start">
-                <span className="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">signpost</span>
-                <span className="font-headline font-black text-2xl text-surface-container">03</span>
-              </div>
-              <div>
-                <h5 className="font-headline font-bold text-lg uppercase tracking-tighter mb-2 leading-tight">Verkehrszeichen</h5>
-                <p className="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Nicht gestartet</p>
-              </div>
-            </div>
-
-            <div className="bg-inverse-surface p-6 flex flex-col justify-between group cursor-pointer shadow-lg border-l-4 border-primary-fixed min-h-[200px]">
-              <div className="flex justify-between items-start">
-                <span className="material-symbols-outlined text-4xl text-primary-fixed">hub</span>
-                <span className="font-headline font-black text-2xl text-on-surface-variant">04</span>
-              </div>
-              <div>
-                <h5 className="font-headline font-black text-white text-lg uppercase tracking-tighter mb-2 leading-tight">Straßenverkehrs system</h5>
-                <div className="flex items-center gap-2 text-primary-fixed">
-                  <span className="text-[10px] font-headline font-bold tracking-widest">JETZT FORTSETZEN</span>
-                  <span className="material-symbols-outlined text-sm">play_circle</span>
+            {/* Hier wird das Array dynamisch gerendert */}
+            {theoryModules.map((module) => (
+              <div 
+                key={module.id}
+                onClick={() => onStartLesson(module.id)} 
+                className="bg-white p-6 border-l-4 border-surface-container group hover:border-primary transition-all cursor-pointer shadow-sm flex flex-col justify-between min-h-[200px]"
+              >
+                <div className="flex justify-between items-start">
+                  <span className="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">{module.icon}</span>
+                  {/* padStart sorgt dafür, dass aus 1 eine 01 wird */}
+                  <span className="font-headline font-black text-2xl text-surface-container">
+                    {String(module.id).padStart(2, '0')}
+                  </span>
+                </div>
+                <div>
+                  <h5 className="font-headline font-bold text-lg uppercase tracking-tighter mb-2 leading-tight">{module.title}</h5>
+                  <p className="text-[10px] text-primary font-bold uppercase tracking-widest">Modul starten</p>
                 </div>
               </div>
-            </div>
+            ))}
 
           </div>
         </section>
