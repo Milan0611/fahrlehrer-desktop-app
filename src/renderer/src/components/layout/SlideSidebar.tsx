@@ -1,4 +1,4 @@
-import { lessonTranslations } from '../../lessons/LessonLanguages';
+import { getLessonData } from '../../lessons/LessonLanguages';
 
 interface SlideSidebarProps {
   currentLessonId: number;
@@ -8,11 +8,9 @@ interface SlideSidebarProps {
 
 export const SlideSidebar = ({ currentLessonId, currentSlideId, onSlideSelect }: SlideSidebarProps) => {
 
-  // Wir holen uns die echten Lektionsdaten
-  const lessonData = lessonTranslations["de"]; 
-
-  // ALLES andere (folienArray, folienIDs, for-Schleife) haben wir gelöscht!
-  // Wir brauchen es nicht, weil lessonData.slides schon ein perfektes Array ist.
+  // Wir holen uns die echten Lektionsdaten und holen uns dabei immer die deutsche Version, da der fahrlerer immer noch in der Lage sein
+  // die Folien in der Sidebar zu lesen
+  const lessonData = getLessonData("de", currentLessonId); 
 
   return (
     <aside className="bg-[#E7E8EB] dark:bg-[#0C0E10] flex flex-col w-80 h-full overflow-y-auto border-r-0 z-40">
