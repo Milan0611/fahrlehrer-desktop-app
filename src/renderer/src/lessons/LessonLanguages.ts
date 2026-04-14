@@ -31,9 +31,10 @@ export const getLessonData = (language: AvailableLanguage, lessonId: number) => 
   if (!lesson) {
     return {
       lessonId: lessonId,
+      isError: true,
       slides: [
         {
-          slide: 1,
+          id: 1,
           template: "ErrorTemplate", 
           content: {
             title: "Fehler: Lektion nicht gefunden",

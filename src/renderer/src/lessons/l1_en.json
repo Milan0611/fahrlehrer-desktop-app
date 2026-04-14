@@ -1,5 +1,6 @@
 {
   "lessonId": 1,
+  "isError": false,
   "slides": [
     {
       "id": "folie_3",

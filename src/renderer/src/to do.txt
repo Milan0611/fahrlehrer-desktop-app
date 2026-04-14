@@ -8,3 +8,9 @@ dafür angefasst werden müssen.
     -Dafür auch die Votings und die dafür nötige Internetseite für die Handys erstellen
     -Diese Seite soll sich mit der aktuellen Präsi synchronisieren und bei Auswahl einer nicht deutschen Sprache eine Version der Präsi mit der entsprechenden
     Sprache anzeigen. Bei interaktiven Folien (Votings und ähnliches) kann man was eingeben.
+
+
+Wichtige Short cuts oder befehle:
+-npm run dev: App Starten (sonst einfach über den Debugger auf Play klicken)
+-strg + ö: Terminal öffnen
+-strg + kleines shift + P: Befehlsfesnter öffnen wo man Reload Window kann (das lässt den fehler bei tsconfig.web.json verschwinden)
