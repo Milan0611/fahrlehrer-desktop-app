@@ -2,7 +2,6 @@ interface DashboardProps {
   onStartLesson: (lessonId: number) => void;
 }
 
-// Daten-Array für die 14 Module der Klasse B
 const theoryModules = [
   { id: 1, title: "Persönliche Voraussetzungen", icon: "psychology" },
   { id: 2, title: "Rechtliche Rahmenbedingungen", icon: "gavel" },
@@ -22,8 +21,8 @@ const theoryModules = [
 
 export const Dashboard = ({ onStartLesson }: DashboardProps) => {
   return (
-    <div className="bg-surface font-body text-on-surface flex min-h-[1024px]">
-      <aside className="fixed left-0 top-0 h-full flex flex-col bg-slate-50 dark:bg-[#0C0E10] w-64 border-r-0 rounded-none z-50">
+    <div className="bg-surface font-body text-on-surface flex h-screen w-full">
+      <aside className="fixed left-0 top-0 h-screen flex flex-col bg-slate-50 dark:bg-[#0C0E10] w-64 border-r-0 rounded-none z-50">
         <div className="p-8">
           <h1 className="text-2xl font-black italic tracking-tighter text-[#0C0E10] dark:text-white uppercase mb-1">
             Next Level Learning
@@ -60,8 +59,9 @@ export const Dashboard = ({ onStartLesson }: DashboardProps) => {
         </div>
       </aside>
 
-      <main className="ml-64 flex-1 flex flex-col min-h-[1024px]">
-        <header className="flex items-center justify-between px-8 w-full h-16 border-b-2 border-[#5A6000] bg-white dark:bg-[#0C0E10] sticky top-0 z-40">
+      {/* Hauptbereich: h-screen und overflow-y-auto ermöglichen das Scrollen der Inhalte */}
+      <main className="ml-64 flex-1 flex flex-col h-screen overflow-y-auto relative">
+        <header className="flex items-center justify-between px-8 w-full h-16 border-b-2 border-[#5A6000] bg-white dark:bg-[#0C0E10] sticky top-0 z-40 shrink-0">
           <div className="flex items-center gap-8">
             <span className="font-headline font-black text-xl text-inverse-surface tracking-tighter italic">DRIVER THEORY PRO</span>
             <nav className="hidden md:flex gap-6">
@@ -89,7 +89,7 @@ export const Dashboard = ({ onStartLesson }: DashboardProps) => {
           </div>
         </header>
 
-        <section className="relative bg-inverse-surface py-20 px-12 overflow-hidden slant-bg">
+        <section className="relative bg-inverse-surface py-20 px-12 overflow-hidden slant-bg shrink-0">
           <div className="relative z-10 max-w-4xl">
             <h2 className="text-primary-fixed font-headline font-black text-6xl tracking-tighter italic uppercase mb-4 leading-none">Willkommen zurück,<br />Fahrlehrer.</h2>
             <p className="text-surface-container-lowest font-body text-xl max-w-2xl font-light leading-relaxed">Bereit, den Erfolg deiner Schüler zu beschleunigen? Dein Theorie-Lehrplan ist mit den neuesten Vorschriften von 2024 aktualisiert. </p>
@@ -103,7 +103,8 @@ export const Dashboard = ({ onStartLesson }: DashboardProps) => {
           </div>
         </section>
 
-        <section className="p-12 -mt-16 relative z-20">
+        {/* Die Kacheln werden jetzt korrekt bis nach unten gerendert und sind scrollbar */}
+        <section className="p-12 -mt-16 relative z-20 pb-24">
           <div className="flex items-end justify-between mb-8">
             <div>
               <h3 className="font-headline font-black text-4xl text-inverse-surface uppercase tracking-tighter">Lektion der Führerscheinklasse B</h3>
@@ -116,8 +117,6 @@ export const Dashboard = ({ onStartLesson }: DashboardProps) => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            
-            {/* Hier wird das Array dynamisch gerendert */}
             {theoryModules.map((module) => (
               <div 
                 key={module.id}
@@ -126,7 +125,6 @@ export const Dashboard = ({ onStartLesson }: DashboardProps) => {
               >
                 <div className="flex justify-between items-start">
                   <span className="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary transition-colors">{module.icon}</span>
-                  {/* padStart sorgt dafür, dass aus 1 eine 01 wird */}
                   <span className="font-headline font-black text-2xl text-surface-container">
                     {String(module.id).padStart(2, '0')}
                   </span>
@@ -137,7 +135,6 @@ export const Dashboard = ({ onStartLesson }: DashboardProps) => {
                 </div>
               </div>
             ))}
-
           </div>
         </section>
       </main>
