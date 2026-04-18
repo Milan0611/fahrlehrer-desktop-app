@@ -14,3 +14,12 @@ Wichtige Short cuts oder befehle:
 -npm run dev: App Starten (sonst einfach über den Debugger auf Play klicken)
 -strg + ö: Terminal öffnen
 -strg + kleines shift + P: Befehlsfesnter öffnen wo man Reload Window kann (das lässt den fehler bei tsconfig.web.json verschwinden)
+
+To dos (Verfasst 17.04.26):
+-Folienid von string zu nummer ändern (Evtl nicht machen)
+-Die Lektionsid oben links in SlideSidebar dynamisch je nach ausgewählte Lektion anzeigen
+-Kommentare und codenamen aufräumen
+-evtl das hebenstreittemplate und entsprechend die Felder in den json dateien überarbeiten
+-evlt ein weiteres Template hinzufügen
+-evtl pro template eine weitere Folie hinzufügen
+-evtl die Folien etwas aufhübschen und "professionell" aussehen lassen

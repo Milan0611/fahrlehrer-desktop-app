@@ -1,14 +1,6 @@
 import de1 from './l1_de.json';
 import en1 from './l1_en.json';
 
-/* Altes Zeug
-// Hier bündeln wir alle importierten Sprachen. Links sind die strings die den Dateien rechts zugewiesen werden
-export const lessonTranslations = {
-  de: de,
-  en: en,
-};
-*/
-
 // Ein Array, wo für jede Sprache jede Lektion als json datei enthalten ist
 const lessonRegistry = {
   de: {
