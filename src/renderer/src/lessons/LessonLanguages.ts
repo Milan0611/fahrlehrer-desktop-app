@@ -5,10 +5,13 @@ import en1 from './l1_en.json';
 const lessonRegistry = {
   de: {
     1: de1
+    // Weitere Lektionen
   },
   en : {
     1: en1
+    // Weitere Lektionen
   }
+  // Weitere Sprachen
 };
 
 // Die Sprach-Kürzel leiten sich jetzt direkt aus den obersten Schlüsseln von lessonRegistry ab ('de', 'en')
@@ -20,6 +23,7 @@ export const availableLanguages = Object.keys(lessonRegistry) as AvailableLangua
 export const getLessonData = (language: AvailableLanguage, lessonId: number) => {
   const lesson = lessonRegistry[language]?.[lessonId];
 
+  // Wenn es keine Lektion mit dieser Sprach- und Lektionskombination gibt, wird eine Fehlerfolie mit dem ErrorTemplate angezeigt
   if (!lesson) {
     return {
       lessonId: lessonId,

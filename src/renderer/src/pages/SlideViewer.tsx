@@ -36,11 +36,7 @@ export const SlideViewer = ({ lessonId, onCloseLesson }: SlideViewerProps) => {
           onSlideSelect={setCurrentSlideId} 
         /> 
 
-        {/* Angepasster Main-Bereich: 
-          - overflow-hidden statt overflow-y-auto (kein Scrollen mehr erlaubt)
-          - p-4 für minimalen Rand (statt p-12)
-          - flex items-center justify-center zentriert den Inhalt perfekt
-        */}
+        {/* Main-Bereich*/}
         <main className="flex-1 bg-surface overflow-hidden p-6 flex items-center justify-center">
           <div className="w-full h-full flex items-center justify-center">
             

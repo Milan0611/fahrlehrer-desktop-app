@@ -1,7 +1,9 @@
 interface DashboardProps {
+  // Set Methode für die aktuelle lessonId, damit jenachdem welche Lektion man anklickt auch die korrekte lessonId übergeben wird 
   onStartLesson: (lessonId: number) => void;
 }
 
+// Array mit ID, Titel und icon aller 14 Lektionen. Daraus werden die anklickbaren Buttons für die Lektion generiert. 
 const theoryModules = [
   { id: 1, title: "Persönliche Voraussetzungen", icon: "psychology" },
   { id: 2, title: "Rechtliche Rahmenbedingungen", icon: "gavel" },
@@ -103,7 +105,7 @@ export const Dashboard = ({ onStartLesson }: DashboardProps) => {
           </div>
         </section>
 
-        {/* Die Kacheln werden jetzt korrekt bis nach unten gerendert und sind scrollbar */}
+        {/* Die Kacheln werden korrekt bis nach unten gerendert und sind scrollbar */}
         <section className="p-12 -mt-16 relative z-20 pb-24">
           <div className="flex items-end justify-between mb-8">
             <div>
