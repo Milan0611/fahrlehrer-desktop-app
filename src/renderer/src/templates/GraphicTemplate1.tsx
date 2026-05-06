@@ -1,11 +1,11 @@
 import { StatBlock } from '../components/atoms/StatBlock';
 import { Macherkreis } from '../components/atoms/Macherkreis';
 
-interface HebenstreitProps {
+interface Graphic1Props {
   data: any;
 }
 
-const HebenstreitTemplate = ({ data }: HebenstreitProps) => {
+const GraphicTemplate1 = ({ data }: Graphic1Props) => {
   return (
     <div className="relative w-full h-full bg-white p-12 font-sans border-[12px] border-next-level-green rounded-[2.5rem] shadow-2xl flex flex-col justify-between">
       
@@ -55,4 +55,4 @@ const HebenstreitTemplate = ({ data }: HebenstreitProps) => {
   );
 };
 
-export default HebenstreitTemplate;
+export default GraphicTemplate1;

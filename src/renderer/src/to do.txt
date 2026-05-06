@@ -22,4 +22,4 @@ To dos (Verfasst 17.04.26):
 -evtl das hebenstreittemplate und entsprechend die Felder in den json dateien überarbeiten
 -evlt ein weiteres Template hinzufügen
 -evtl pro template eine weitere Folie hinzufügen
--evtl die Folien etwas aufhübschen und "professionell" aussehen lassen
+-evtl die Folien etwas aufhübschen und "professionell" aussehen lassen 

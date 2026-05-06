@@ -1,4 +1,4 @@
-import HebenstreitTemplate from '../templates/HebenstreitTemplate';
+import GraphicTemplate1 from '../templates/GraphicTemplate1';
 import ErrorTemplate from '../templates/ErrorTemplate';
 import { getLessonData, AvailableLanguage } from '../lessons/LessonLanguages';
 
@@ -30,8 +30,8 @@ const SlideRenderer = ({ currentLessonId, currentSlideId, lang }: SlideRendererP
   // Ein switch für alle verfügbaren Templates. Je nachdem welches Template für die Folie in der JSON festgelegt ist, 
   // wird ein anderes verwendet (aktuell nur eins vorhanden)
   switch (slide.template) {
-    case 'HebenstreitTemplate':
-      return <HebenstreitTemplate data={slide.content} />; // Lädt das Template mit den Daten aus der JSON der Folie
+    case 'GraphicTemplate1':
+      return <GraphicTemplate1 data={slide.content} />; // Lädt das Template mit den Daten aus der JSON der Folie
     case 'ErrorTemplate':
       return <ErrorTemplate data={slide.content} />
     default:
