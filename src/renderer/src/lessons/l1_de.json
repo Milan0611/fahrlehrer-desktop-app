@@ -4,7 +4,7 @@
   "slides": [
     {
       "id": "folie_3",
-      "template": "HebenstreitTemplate",
+      "template": "GraphicTemplate1",
       "content": {
         "title": "Fahren aber wie geht das?",
         "subtitle": "1.0.2 Der „Macher“kreis nach Hebenstreit",

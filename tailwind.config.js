@@ -8,7 +8,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'next-level-green': '#A3C614', // Das typische Grün aus deinem Buch
+        'next-level-green': '#A3C614',
       },
     },
   },

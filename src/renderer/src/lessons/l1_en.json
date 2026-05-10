@@ -4,7 +4,7 @@
   "slides": [
     {
       "id": "folie_3",
-      "template": "HebenstreitTemplate",
+      "template": "GraphicTemplate1",
       "content": {
         "title": "Driving, but how does it work?",
         "subtitle": "1.0.2 The „Doing“ cycle",
