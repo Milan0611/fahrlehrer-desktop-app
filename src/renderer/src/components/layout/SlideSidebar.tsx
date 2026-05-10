@@ -61,8 +61,9 @@ export const SlideSidebar = ({ currentLessonId, currentSlideId, onSlideSelect }:
           <span className="material-symbols-outlined text-[#5A6000]">account_circle</span>
         </div>
         <div className="flex flex-col">
-          <span className="text-xs font-bold font-headline uppercase text-on-surface">Instructor Mode</span>
-          <span className="text-[10px] text-outline font-label uppercase">Session Active</span>
+          {/* Farben für Instructor Mode und Session Active angepasst */}
+          <span className="text-xs font-bold font-headline uppercase text-[#2D2F31] dark:text-slate-400">Instructor Mode</span>
+          <span className="text-[10px] font-label uppercase text-[#2D2F31] dark:text-slate-400">Session Active</span>
         </div>
       </div>
     </aside>
