@@ -80,7 +80,7 @@ export const Dashboard = ({ onStartLesson }: DashboardProps) => {
 
         <section className="relative bg-inverse-surface py-20 px-12 overflow-hidden slant-bg shrink-0">
           <div className="relative z-10 max-w-4xl">
-            <h2 className="text-primary-fixed font-headline font-black text-6xl tracking-tighter italic uppercase mb-4 leading-none">Willkommen zurück,<br />Fahrlehrer.</h2>
+            <h2 className="text-primary-fixed font-headline font-black text-6xl tracking-tighter italic uppercase mb-4 leading-none">Willkommen zurück,<br />Fahrlehrer!</h2>
           </div>
           <div className="absolute right-0 top-0 w-1/3 h-full opacity-10 pointer-events-none">
             <div className="w-full h-full kinetic-gradient" style={{ clipPath: 'polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%)' }}></div>
@@ -122,9 +122,6 @@ export const Dashboard = ({ onStartLesson }: DashboardProps) => {
         </section>
       </main>
 
-      <button className="fixed bottom-8 right-8 w-16 h-16 kinetic-gradient flex items-center justify-center shadow-2xl group transition-transform hover:scale-110 active:scale-95 z-50">
-        <span className="material-symbols-outlined text-on-primary-fixed text-3xl font-bold group-hover:rotate-90 transition-transform">add</span>
-      </button>
     </div>
   );
 };
