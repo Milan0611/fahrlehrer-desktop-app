@@ -1,0 +1,44 @@
+{
+  "lessonId": 1,
+  "isError": false,
+  "slides": [
+    {
+      "id": "folie_3",
+      "template": "GraphicTemplate1",
+      "content": {
+        "title": "Fahren aber wie geht das?",
+        "subtitle": "1.0.2 Der „Macher“kreis nach Hebenstreit",
+        "text1": "Täglich fahren Millionen von Menschen mit dem Auto von A nach B. Aber wie genau geht das eigentlich?",
+        "text2": "Das verkehrspsychologische Modell beschreibt dieses Zusammenspiel.",
+        "text3": "Stell dir vor, plötzlich rollt ein Ball auf die Straße...",
+        "text4": "",
+        "text5": "",
+        "text6": "",
+        "text7": "",
+        "text8": "",
+        "text9": "",
+        "atom1": {
+          "atom1text1": "Informationen aufnehmen",
+          "atom1text2": "SINNESORGANE",
+          "atom1text3": "Verarbeitung im Gehirn",
+          "atom1text4": "Bewusste oder automatisierte Entscheidungen",
+          "atom1text5": "Reagieren / Umsetzen",
+          "atom1text6": "MUSKELN"
+        },
+        "atom2": {
+          "atom2text1": "Informationen aufnehmen",
+          "atom2text2": "SINNESORGANE",
+          "atom2text3": "Verarbeitung im Gehirn",
+          "atom2text4": "Bewusste oder automatisierte Entscheidungen",
+          "atom2text5": "Reagieren / Umsetzen",
+          "atom2text6": "MUSKELN"
+        },
+        "stats": {
+          "value1": "50 Mrd.", "label1": "Individualverkehr",
+          "value2": "2,73 Mrd.", "label2": "Eisenbahnverkehr",
+          "value3": "8,9 Mrd.", "label3": "Bus & Bahn"
+        }
+      }
+    }
+  ]
+}

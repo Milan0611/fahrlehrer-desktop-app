@@ -3,28 +3,31 @@
   "isError": false,
   "slides": [
     {
-      "id": "folie_3",
-      "template": "GraphicTemplate1",
-      "content": {
-        "title": "Fahren aber wie geht das?",
-        "subtitle": "1.0.2 Der „Macher“kreis nach Hebenstreit",
-        "intro": "Täglich fahren Millionen von Menschen mit dem Auto von A nach B. Aber wie genau geht das eigentlich?",
-        "model_desc": "Das verkehrspsychologische Modell beschreibt dieses Zusammenspiel.",
-        "doing_cycle": {
-          "senses_upper": "Informationen aufnehmen",
-          "senses_lower": "SINNESORGANE",
-          "brain_upper": "Verarbeitung im Gehirn",
-          "brain_lower": "Bewusste oder automatisierte Entscheidungen",
-          "muscle_upper": "Reagieren / Umsetzen",
-          "muscle_lower": "MUSKELN"
-        },
-        "stats": [
-          {"value": "50 Mrd.", "label": "Individualverkehr"},
-          {"value": "2,73 Mrd.", "label": "Eisenbahnverkehr"},
-          {"value": "8,9 Mrd.", "label": "Bus & Bahn"}
-        ],
-        "example": "Stell dir vor, plötzlich rollt ein Ball auf die Straße..."
+    "id": "folie_verarbeitungsprozess",
+    "template": "GraphicTemplate1",
+    "content": {
+      "title": "Der Prozess der Informationsverarbeitung",
+      "textTopLeft": {
+        "heading": "Schritt 1: Wahrnehmung",
+        "content": "Im Straßenverkehr prasseln sekündlich unzählige Reize auf uns ein. Der Fahrer nimmt über seine Sinnesorgane kontinuierlich visuelle, akustische und taktile Informationen aus der Umgebung auf, wie beispielsweise bremsende Fahrzeuge, Verkehrszeichen oder Fahrbahnbeschaffenheiten."
+      },
+      "textBottomLeft": {
+        "heading": "Schritt 2: Verarbeitung & Entscheidung",
+        "content": "Die aufgenommenen Reize werden an das Gehirn weitergeleitet und dort bewertet. Das Gehirn gleicht die Situation mit bekannten Regeln und Erfahrungswerten ab. Unwichtige Reize werden gefiltert, während bei Gefahren blitzschnell eine Handlungsentscheidung getroffen wird."
+      },
+      "textBottomRight": {
+        "heading": "Schritt 3: Motorische Umsetzung",
+        "content": "Sobald die Entscheidung gefallen ist, sendet das Gehirn entsprechende Nervenimpulse an den Bewegungsapparat. Der Fahrer führt die physische Handlung aus – zum Beispiel den Wechsel des Fußes vom Gas- auf das Bremspedal oder eine schnelle Lenkbewegung."
+      },
+      "atomData": {
+        "atom1text1": "Informationen aufnehmen",
+        "atom1text2": "SINNESORGANE",
+        "atom1text3": "Verarbeitung im Gehirn",
+        "atom1text4": "Bewusste oder automatisierte Entscheidungen",
+        "atom1text5": "Reagieren / Umsetzen",
+        "atom1text6": "MUSKELN"
       }
     }
+  }
   ]
 }
