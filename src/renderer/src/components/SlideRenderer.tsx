@@ -1,41 +1,58 @@
 import GraphicTemplate1 from '../templates/GraphicTemplate1';
+import TextTemplate1 from '@renderer/templates/TextTemplate1';
 import ErrorTemplate from '../templates/ErrorTemplate';
 import { getLessonData, AvailableLanguage } from '../lessons/LessonLanguages';
 
-// Interface für den SlideRenderer: Enthält LektionsID, Folien ID und eine Sprache
 interface SlideRendererProps {
   currentLessonId: number;
   currentSlideId: string;
   lang: AvailableLanguage;
 }
 
-// Der SlideRenderer muss mit Slide Id und Sprache aufgerufen werden
+/**
+ * Zentrale Routing-Komponente für die Folieninhalte.
+ * Nimmt den aktuellen Zustand (Lektion, Folien-ID, Sprache) entgegen, ruft die entsprechenden
+ * Daten aus der Registry ab und delegiert das Rendering an das spezifische Template.
+ * * Datenfluss: Parent (SlideViewer) -> SlideRenderer -> getLessonData -> Template-Komponente
+ */
 const SlideRenderer = ({ currentLessonId, currentSlideId, lang }: SlideRendererProps) => {
 
-  // Es wird sich mit den beiden Parametern sofort die Datei in der richtigen Sprache und die Folien-ID geholt und abgespeichert
   const lessonData = getLessonData(lang, currentLessonId);
 
-  // Speichert schonmal den ersten Slide. Im Falle eines Fehler wegen falscher Sprache oder LektionsId ist das der ErrorSlide
-  let slide: any = lessonData.slides[0];
+  /**
+   * Resolve Slide: 
+   * Sucht die übergebene ID im Array der geladenen Lektion.
+   * Fallback-Mechanismus: Wird die ID nicht gefunden (z.B. nach einem Lektionswechsel),
+   * wird automatisch das erste Element im Array als aktiver Slide gesetzt.
+   */
+  let slide: any = lessonData.slides.find(s => s.id === currentSlideId) || lessonData.slides[0];
 
-  // Wenn es nicht der ErrorSlide aus LessonLanguages.ts ist,
-  if (!lessonData.isError) {
-    // Sucht in der JSON die richtige Folie anhand der SlideId. Die Variable slide wird durch den Slide mit der richtigen SlideId ersetzt
-    slide = lessonData.slides.find(s => s.id === currentSlideId);
+  /**
+   * Error-Handling:
+   * Falls die Lektionstransaktion auf Ebene der Registry fehlgeschlagen ist (isError = true),
+   * wird das von der Registry generierte Error-Objekt gerendert.
+   */
+  if (lessonData.isError) {
+    slide = lessonData.slides[0];
+  }
 
-    // Wenn es die Folie mit der ID nicht gibt, kommt eine Meldung
-    if (!slide) return <div className="text-white">Folie nicht gefunden</div>;
-  } 
+  // Finales Sicherheitsnetz gegen undefinierte Datenstrukturen
+  if (!slide) return <div className="text-slate-500 p-8">Keine Folien in dieser Lektion vorhanden.</div>;
 
-  // Ein switch für alle verfügbaren Templates. Je nachdem welches Template für die Folie in der JSON festgelegt ist, 
-  // wird ein anderes verwendet (aktuell nur eins vorhanden)
+  /**
+   * Template-Switch:
+   * Liest das in der JSON definierte Template-Binding ('template') aus und injiziert 
+   * die zugehörigen Inhaltsdaten ('content') in die entsprechende UI-Komponente.
+   */
   switch (slide.template) {
     case 'GraphicTemplate1':
-      return <GraphicTemplate1 data={slide.content} />; // Lädt das Template mit den Daten aus der JSON der Folie
+      return <GraphicTemplate1 data={slide.content} />; 
     case 'ErrorTemplate':
       return <ErrorTemplate data={slide.content} />
+    case 'TextTemplate1': 
+      return <TextTemplate1 data={slide.content} />
     default:
-      return <div className="text-white">Unbekanntes Template: {slide.template}</div>; // Wenn das Template nicht gefunden wurde
+      return <div className="text-slate-500 p-8">Unbekanntes Template: {slide.template}</div>; 
   }
 };
 

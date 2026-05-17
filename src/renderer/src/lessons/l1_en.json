@@ -3,27 +3,45 @@
   "isError": false,
   "slides": [
     {
-      "id": "folie_3",
+      "id": "folie_verarbeitungsprozess",
       "template": "GraphicTemplate1",
       "content": {
-        "title": "Driving, but how does it work?",
-        "subtitle": "1.0.2 The „Doing“ cycle",
-        "intro": "Millions of people drive around every day. But how exactly does that work?",
-        "model_desc": "The traffic psychology model describes this interplay.",
-        "doing_cycle": {
-          "senses_upper": "absorb information",
-          "senses_lower": "SENSORY ORGANS",
-          "brain_upper": "Processing in the brain",
-          "brain_lower": "Conscious or automated decisions",
-          "muscle_upper": "React / Implement",
-          "muscle_lower": "MUSCLE"
+        "title": "The Process of Information Processing",
+        "textTopLeft": {
+          "heading": "Dummy",
+          "content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
         },
-        "stats": [
-          {"value": "50 billion", "label": "Private transport"},
-          {"value": "2,73 billion", "label": "Rail transport"},
-          {"value": "8,9 billion", "label": "Bus & train"}
-        ],
-        "example": "Imagine a ball suddenly rolls into the street..."
+        "textBottomLeft": {
+          "heading": "Dummy",
+          "content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        },
+        "textBottomRight": {
+          "heading": "Dummy",
+          "content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        },
+        "atomData": {
+          "atom1text1": "Perceive Information",
+          "atom1text2": "SENSORY ORGANS",
+          "atom1text3": "Processing in the Brain",
+          "atom1text4": "Conscious or Automated Decisions",
+          "atom1text5": "React / Execute",
+          "atom1text6": "MUSCLES"
+        }
+      }
+    },
+    {
+      "id": "text_dummy",
+      "template": "TextTemplate1",
+      "content": {
+        "title": "Text Template Overview",
+        "leftBlock": {
+          "heading": "dummy",
+          "content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        },
+        "rightBlock": {
+          "heading": "dummy",
+          "content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        }
       }
     }
   ]

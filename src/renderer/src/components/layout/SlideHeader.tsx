@@ -1,13 +1,19 @@
 import { LangDropdown } from '../atoms/LangDropdown';
 import { AvailableLanguage } from '../../lessons/LessonLanguages';
 
-// Der Header definiert, was er von oben erwartet
 interface SlideHeaderProps {
   lang: AvailableLanguage;
   onLangChange: (lang: AvailableLanguage) => void;
   onClose: () => void;
 }
 
+/**
+ * Kopfzeile der Lektionsansicht.
+ * Beinhaltet globale Kontroll-Elemente wie den Sprachwechsel und den Exit-Button.
+ * * Architektur-Notiz: Die Komponente ist "stateless" bezüglich der Sprache. 
+ * Sie erhält den aktuellen Zustand sowie die Mutator-Funktion (onLangChange) von der 
+ * übergeordneten SlideViewer-Komponente (Lifting State Up).
+ */
 export const SlideHeader = ({ lang, onLangChange, onClose }: SlideHeaderProps) => {
   return (
     <header className="bg-[#F6F6F9] dark:bg-[#0C0E10] flex justify-between items-center px-6 py-4 w-full z-50">
@@ -18,10 +24,10 @@ export const SlideHeader = ({ lang, onLangChange, onClose }: SlideHeaderProps) =
       </div>
       <div className="flex items-center gap-6">
         <div className="hidden md:flex items-center gap-1 text-[#5A6000] dark:text-[#E5F330] font-headline font-bold uppercase tracking-tight text-sm">
-          {/* <span>Lektion 01: Grundlagen der Verkehrssicherheit</span> */} {/* Erstmal auskommentiert als Design Entscheidung */}
+          {/* Lektions-Titel initial auskommentiert aufgrund aktueller Design-Entscheidungen */}
         </div>
         
-        {/* Hier sitzt das Dropdown jetzt fest verankert im Layout! */}
+        {/* Sprachauswahl delegiert den State-Change an den Parent */}
         <LangDropdown currentLang={lang} onChange={onLangChange} />
 
         <div className="flex items-center gap-2">

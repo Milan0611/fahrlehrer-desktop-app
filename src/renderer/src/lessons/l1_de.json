@@ -3,31 +3,46 @@
   "isError": false,
   "slides": [
     {
-    "id": "folie_verarbeitungsprozess",
-    "template": "GraphicTemplate1",
-    "content": {
-      "title": "Der Prozess der Informationsverarbeitung",
-      "textTopLeft": {
-        "heading": "Schritt 1: Wahrnehmung",
-        "content": "Im Straßenverkehr prasseln sekündlich unzählige Reize auf uns ein. Der Fahrer nimmt über seine Sinnesorgane kontinuierlich visuelle, akustische und taktile Informationen aus der Umgebung auf, wie beispielsweise bremsende Fahrzeuge, Verkehrszeichen oder Fahrbahnbeschaffenheiten."
-      },
-      "textBottomLeft": {
-        "heading": "Schritt 2: Verarbeitung & Entscheidung",
-        "content": "Die aufgenommenen Reize werden an das Gehirn weitergeleitet und dort bewertet. Das Gehirn gleicht die Situation mit bekannten Regeln und Erfahrungswerten ab. Unwichtige Reize werden gefiltert, während bei Gefahren blitzschnell eine Handlungsentscheidung getroffen wird."
-      },
-      "textBottomRight": {
-        "heading": "Schritt 3: Motorische Umsetzung",
-        "content": "Sobald die Entscheidung gefallen ist, sendet das Gehirn entsprechende Nervenimpulse an den Bewegungsapparat. Der Fahrer führt die physische Handlung aus – zum Beispiel den Wechsel des Fußes vom Gas- auf das Bremspedal oder eine schnelle Lenkbewegung."
-      },
-      "atomData": {
-        "atom1text1": "Informationen aufnehmen",
-        "atom1text2": "SINNESORGANE",
-        "atom1text3": "Verarbeitung im Gehirn",
-        "atom1text4": "Bewusste oder automatisierte Entscheidungen",
-        "atom1text5": "Reagieren / Umsetzen",
-        "atom1text6": "MUSKELN"
+      "id": "folie_verarbeitungsprozess",
+      "template": "GraphicTemplate1",
+      "content": {
+        "title": "Der Prozess der Informationsverarbeitung",
+        "textTopLeft": {
+          "heading": "Dummy",
+          "content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        },
+        "textBottomLeft": {
+          "heading": "Dummy",
+          "content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        },
+        "textBottomRight": {
+          "heading": "Dummy",
+          "content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        },
+        "atomData": {
+          "atom1text1": "Informationen aufnehmen",
+          "atom1text2": "SINNESORGANE",
+          "atom1text3": "Verarbeitung im Gehirn",
+          "atom1text4": "Bewusste oder automatisierte Entscheidungen",
+          "atom1text5": "Reagieren / Umsetzen",
+          "atom1text6": "MUSKELN"
+        }
+      }
+    },
+    {
+      "id": "text_dummy",
+      "template": "TextTemplate1",
+      "content": {
+        "title": "Text Template Übersicht",
+        "leftBlock": {
+          "heading": "dummy",
+          "content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        },
+        "rightBlock": {
+          "heading": "dummy",
+          "content": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        }
       }
     }
-  }
   ]
 }

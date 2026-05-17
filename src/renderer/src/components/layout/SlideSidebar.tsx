@@ -8,9 +8,13 @@ interface SlideSidebarProps {
 
 export const SlideSidebar = ({ currentLessonId, currentSlideId, onSlideSelect }: SlideSidebarProps) => {
 
-  // Wir holen uns die echten Lektionsdaten und holen uns dabei immer die deutsche Version, da der fahrlerer immer noch in der Lage sein
-  // die Folien in der Sidebar zu lesen
   const lessonData = getLessonData("de", currentLessonId); 
+
+  // --- DER FIX ---
+  // Wir prüfen, ob die übergebene currentSlideId überhaupt im Array existiert.
+  const isValidSlideId = lessonData.slides.some(slide => slide.id === currentSlideId);
+  // Wenn nicht, definieren wir die ID der allerersten Folie als aktive Fallback-ID.
+  const activeId = isValidSlideId ? currentSlideId : lessonData.slides[0]?.id;
 
   return (
     <aside className="bg-[#E7E8EB] dark:bg-[#0C0E10] flex flex-col w-80 h-full overflow-y-auto border-r-0 z-40">
@@ -22,15 +26,12 @@ export const SlideSidebar = ({ currentLessonId, currentSlideId, onSlideSelect }:
       <nav className="flex-1 px-0">
         <div className="flex flex-col">
           
-          {/* Wir mappen JETZT DIREKT über das Array aus deiner JSON-Datei! */}
-          {/* Jeder Durchlauf gibt uns ein komplettes 'slide'-Objekt und seinen 'index' (0, 1, 2...) */}
           {lessonData.slides.map((slide, index) => {
             
-            // Wir ziehen uns die echte ID direkt aus dem JSON-Eintrag
             const slideId = slide.id;
-            const isActive = currentSlideId === slideId;
+            // Wir vergleichen jetzt mit unserer abgesicherten 'activeId' statt direkt mit 'currentSlideId'
+            const isActive = activeId === slideId;
             
-            // Für die Nummerierung in der UI rechnen wir einfach index + 1
             const folienNummer = index + 1;
 
             return (
@@ -45,7 +46,6 @@ export const SlideSidebar = ({ currentLessonId, currentSlideId, onSlideSelect }:
               >
                 <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform" style={isActive ? { fontVariationSettings: "'FILL' 1" } : {}}>play_arrow</span>
                 
-                {/* Hier kommt jetzt deine echte Foliennummer UND der echte Titel aus dem JSON rein! */}
                 <span className="font-['Manrope'] text-sm text-left font-semibold">
                   Folie {folienNummer}: {slide.content.title}
                 </span>
@@ -61,7 +61,6 @@ export const SlideSidebar = ({ currentLessonId, currentSlideId, onSlideSelect }:
           <span className="material-symbols-outlined text-[#5A6000]">account_circle</span>
         </div>
         <div className="flex flex-col">
-          {/* Farben für Instructor Mode und Session Active angepasst */}
           <span className="text-xs font-bold font-headline uppercase text-[#2D2F31] dark:text-slate-400">Instructor Mode</span>
           <span className="text-[10px] font-label uppercase text-[#2D2F31] dark:text-slate-400">Session Active</span>
         </div>

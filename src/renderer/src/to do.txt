@@ -15,7 +15,7 @@ Wichtige Short cuts oder befehle:
 -strg + ö: Terminal öffnen
 -strg + kleines shift + P: Befehlsfesnter öffnen wo man Reload Window kann (das lässt den fehler bei tsconfig.web.json verschwinden)
 
-To dos (Verfasst 17.04.26):
+To dos :
 -Folienid zu beschreibenden Strings ändern 
 -Die Lektionsid oben links in SlideSidebar dynamisch je nach ausgewählte Lektion anzeigen !FERTIG!
 -Kommentare und codenamen aufräumen (hebenstreittemplate umbenennen)

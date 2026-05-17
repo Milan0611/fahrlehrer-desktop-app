@@ -1,7 +1,17 @@
 import de1 from './l1_de.json';
 import en1 from './l1_en.json';
 
-// Ein Array, wo für jede Sprache jede Lektion als json datei enthalten ist
+/**
+ * Zentrales Daten-Modul zur Verwaltung und Bereitstellung der mehrsprachigen Lektionsinhalte.
+ * Fungiert als statische Datenquelle (Registry) und steuert den Abruf der JSON-Dateien
+ * für die nachgelagerten UI-Komponenten (wie SlideRenderer und SlideSidebar).
+ */
+
+/**
+ * Nested-Object-Registry für alle verfügbaren Lektionen.
+ * Die Datenstruktur mappt das Sprachkürzel auf die jeweilige Lektions-ID und verknüpft 
+ * diese mit dem entsprechenden JSON-Import.
+ */
 const lessonRegistry = {
   de: {
     1: de1
@@ -14,23 +24,37 @@ const lessonRegistry = {
   // Weitere Sprachen
 };
 
-// Die Sprach-Kürzel leiten sich jetzt direkt aus den obersten Schlüsseln von lessonRegistry ab ('de', 'en')
+/**
+ * Dynamische Typ-Ableitung für die unterstützten Sprachen.
+ * Die Typen leiten sich direkt aus den obersten Schlüsseln der 'lessonRegistry' ab.
+ * Dies garantiert eine typsichere Verwendung über die gesamte Architektur hinweg
+ * und verhindert Hardcoding der Sprachkürzel.
+ */
 export type AvailableLanguage = keyof typeof lessonRegistry;
 export const availableLanguages = Object.keys(lessonRegistry) as AvailableLanguage[];
 
-// Kann von anderen Dateien mit Sprache und LektionsID als Parameter aufgerufen werden, um die richtige Datei für die Sprache und LektionsID 
-// zu bekommen
+/**
+ * Holt die Inhaltsdaten für eine spezifische Lektion in der gewünschten Sprache.
+ * * Datenfluss: Nimmt die Suchparameter entgegen, prüft die Registry und gibt das 
+ * entsprechende JSON-Objekt zurück. Fehlen die Daten (z.B. Lektion noch nicht übersetzt), 
+ * wird der Fehler abgefangen und ein synthetisches Lektionsobjekt mit einer 
+ * definierten Error-Folie generiert. Dadurch wird sichergestellt, dass die Render-Pipeline
+ * nicht abstürzt, sondern kontrolliert das ErrorTemplate anzeigt.
+ *
+ * @param language - Das gewünschte Sprachkürzel (muss im AvailableLanguage-Typ existieren)
+ * @param lessonId - Die numerische ID der anzufordernden Lektion
+ * @returns Das JSON-Objekt der Lektion oder ein strukturell identisches Error-Objekt
+ */
 export const getLessonData = (language: AvailableLanguage, lessonId: number) => {
   const lesson = lessonRegistry[language]?.[lessonId];
 
-  // Wenn es keine Lektion mit dieser Sprach- und Lektionskombination gibt, wird eine Fehlerfolie mit dem ErrorTemplate angezeigt
   if (!lesson) {
     return {
       lessonId: lessonId,
       isError: true,
       slides: [
         {
-          id: 1,
+          id: 1, // Fallback ID für den Renderer
           template: "ErrorTemplate", 
           content: {
             title: "Fehler: Lektion nicht gefunden",
