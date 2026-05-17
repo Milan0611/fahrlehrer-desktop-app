@@ -9,39 +9,53 @@ interface SlideViewerProps {
   onCloseLesson: () => void;
 }
 
+/**
+ * Orchestrator-Komponente für die gesamte Lektionsansicht.
+ * Fungiert als State-Container für die aktuell ausgewählte Folie und die aktive Sprache.
+ * Verknüpft die isolierten UI-Komponenten (Header, Sidebar, Renderer) miteinander, 
+ * indem sie Zustand und Mutator-Funktionen über Props nach unten reicht (Props Drilling).
+ */
 export const SlideViewer = ({ lessonId, onCloseLesson }: SlideViewerProps) => {
+  
+  /**
+   * Lokaler State für die Navigation.
+   * Startet initial mit einem Fallback-Wert. Dieser Wert wird primär durch Callbacks 
+   * aus der Sidebar (onSlideSelect) manipuliert.
+   */
   const [currentSlideId, setCurrentSlideId] = useState("folie_3");
 
-  // Der useState für die Sprache wurde von App.tsx hier runter gezogen, da Spracheänderung nur die Folien und nicht die ganze App betreffen
-  // Der useStae kann aber nicht tiefer gehen, da SlideHeader (mit dem LangDropdown) und 
-  // SlideRenderer (mit den Folieninhalten) miteinander kommunierzieren müssen und SlideViewer der nächste gemeinsame parent ist
+  /**
+   * Lokaler State für die Lokalisierung.
+   * Wurde mittels 'Lifting State Up' in diesen gemeinsamen Parent gehoben, da sowohl der 
+   * Header (Mutator via Dropdown) als auch der Renderer (Consumer für die JSON-Daten)
+   * Zugriff auf diesen Zustand benötigen.
+   */
   const [lang, setLang] = useState<AvailableLanguage>("de");
 
   return (
     <div className="bg-surface font-body text-on-surface overflow-hidden h-screen flex flex-col">
 
-        {/* Hier wird sowohl die aktuelle Sprache, als auch die Setter-Funktion zum setzen der Sprache übergeben, 
-        da man mit dem LangDropdown im SlideHeader die Sprache ändern können soll */}
+      {/* Header erhält Leserechte für die Sprache sowie die Setter-Funktion zum Ändern */}
       <SlideHeader 
       lang={lang} 
       onLangChange={setLang} 
       onClose={onCloseLesson} />
 
       <div className="flex flex-1 overflow-hidden"> 
-        {/* Hier wird die lessonId, die aktuelle SlideId und die Setter-Funktion zum setzen der SlideId übergeben, da man bei welcheln 
-        der Folien die SlideId ändern kann und dadurch dann der entsprechende Inhalt passend zur neuen SlideId angezeigt wird */}
+        {/* Sidebar benötigt die Lektion für den JSON-Fetch, die aktuelle ID für das Highlighting
+            sowie die Setter-Funktion, um Navigations-Events nach oben zu funken. */}
         <SlideSidebar 
           currentLessonId={lessonId}
           currentSlideId={currentSlideId} 
           onSlideSelect={setCurrentSlideId} 
         /> 
 
-        {/* Main-Bereich*/}
+        {/* Main-Bereich */}
         <main className="flex-1 bg-surface overflow-hidden p-6 flex items-center justify-center">
           <div className="w-full h-full flex items-center justify-center">
             
-            {/* Hier wird nur die aktuelle lessonId, SlideId und Sprache ohne Setter-Funktionen übergeben, 
-            da der SlideRenderer diese Informationen nur braucht, um abzulesen welche Folie in welcher Sprache angezeigt werden soll*/}
+            {/* Renderer ist ein reiner Consumer (Read-Only). Er benötigt nur die Parameter, 
+                um die korrekte JSON abzurufen und die Template-Weiche zu stellen. */}
             <SlideRenderer
             currentLessonId={lessonId} 
             currentSlideId={currentSlideId} 

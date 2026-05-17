@@ -6,14 +6,28 @@ interface SlideSidebarProps {
   onSlideSelect: (id: string) => void;
 }
 
+/**
+ * Seitliche Navigation zur Auswahl spezifischer Folien innerhalb einer Lektion.
+ * Generiert die Navigationseinträge dynamisch aus der zentralen JSON-Registry.
+ */
 export const SlideSidebar = ({ currentLessonId, currentSlideId, onSlideSelect }: SlideSidebarProps) => {
 
+  /**
+   * Architektur-Entscheidung: 
+   * Die Sidebar lädt die Lektionsdaten hartcodiert in "de" (Deutsch). 
+   * Dies stellt sicher, dass der Fahrlehrer (Instructor Mode) die Navigation immer
+   * in seiner Muttersprache bedienen kann, unabhängig davon, auf welche Sprache 
+   * der Haupt-Renderer für den Fahrschüler aktuell eingestellt ist.
+   */
   const lessonData = getLessonData("de", currentLessonId); 
 
-  // --- DER FIX ---
-  // Wir prüfen, ob die übergebene currentSlideId überhaupt im Array existiert.
+  /**
+   * Zustandssicherung der aktiven ID:
+   * Verhindert fehlerhaftes Highlighting, falls der Parent-State eine veraltete 
+   * oder ungültige ID übergibt. Die Sidebar sichert sich iterativ ab und fällt auf 
+   * das erste Array-Element zurück, falls die gesuchte ID nicht existiert.
+   */
   const isValidSlideId = lessonData.slides.some(slide => slide.id === currentSlideId);
-  // Wenn nicht, definieren wir die ID der allerersten Folie als aktive Fallback-ID.
   const activeId = isValidSlideId ? currentSlideId : lessonData.slides[0]?.id;
 
   return (
@@ -26,12 +40,11 @@ export const SlideSidebar = ({ currentLessonId, currentSlideId, onSlideSelect }:
       <nav className="flex-1 px-0">
         <div className="flex flex-col">
           
+          {/* Dynamisches Rendering der Navigationseinträge basierend auf der JSON-Struktur */}
           {lessonData.slides.map((slide, index) => {
             
             const slideId = slide.id;
-            // Wir vergleichen jetzt mit unserer abgesicherten 'activeId' statt direkt mit 'currentSlideId'
             const isActive = activeId === slideId;
-            
             const folienNummer = index + 1;
 
             return (

@@ -1,3 +1,7 @@
+/**
+ * Prop-Definition für das 2-Spalten-Layout.
+ * Erwartet zwingend zwei Textblöcke (links und rechts), um die Symmetrie des Layouts zu wahren.
+ */
 interface TextBlockData {
   heading: string;
   content: string;
@@ -13,6 +17,12 @@ interface TextTemplate1Props {
   data: TextTemplate1Data;
 }
 
+/**
+ * Symmetrisches Text-Layout-Template (2 Spalten).
+ * Konzipiert für Gegenüberstellungen, Vergleiche oder textlastige Inhalte.
+ * Im Gegensatz zum Grafik-Template erlauben die Inhaltscontainer hier vertikales 
+ * Scrollen (overflow-y-auto), falls der Text die Viewport-Höhe überschreitet.
+ */
 const TextTemplate1 = ({ data }: TextTemplate1Props) => {
   return (
     <div className="w-full h-full bg-transparent p-8 flex flex-col overflow-hidden">
@@ -24,7 +34,7 @@ const TextTemplate1 = ({ data }: TextTemplate1Props) => {
         </h2>
       </div>
 
-      {/* Content Bereich: 2 Spalten */}
+      {/* Content Bereich: 2 Spalten, nimmt den restlichen verfügbaren Platz ein (flex-1) */}
       <div className="flex-1 grid grid-cols-2 gap-16 min-h-0">
         
         {/* Linke Spalte */}
@@ -41,7 +51,7 @@ const TextTemplate1 = ({ data }: TextTemplate1Props) => {
           )}
         </div>
 
-        {/* Rechte Spalte */}
+        {/* Rechte Spalte (Farbliche Absetzung zur optischen Trennung) */}
         <div className="bg-[#E5F330]/20 p-8 border-t-4 border-[#5A6000] flex flex-col gap-4 overflow-y-auto">
           {data.rightBlock?.heading && (
             <h3 className="text-xl font-headline font-bold text-[#2D2F31] uppercase tracking-widest shrink-0">
