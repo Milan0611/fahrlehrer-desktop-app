@@ -115,11 +115,6 @@ export const Dashboard = ({ onStartLesson }: DashboardProps) => {
               <h3 className="font-headline font-black text-4xl text-inverse-surface uppercase tracking-tighter">Lektion der Führerscheinklasse B</h3>
               <p className="text-on-surface-variant font-headline uppercase text-sm tracking-widest font-bold">14 Kernmodule (Klasse B)</p>
             </div>
-            <div className="flex gap-2">
-              {/* UI Controls (aktuell ohne Funktion) */}
-              <button className="bg-white p-3 hover:bg-primary-container transition-colors shadow-sm"><span className="material-symbols-outlined">grid_view</span></button>
-              <button className="bg-white p-3 hover:bg-primary-container transition-colors shadow-sm"><span className="material-symbols-outlined">list</span></button>
-            </div>
           </div>
           
           {/* Dynamisches Rendern der Lektions-Karten */}
