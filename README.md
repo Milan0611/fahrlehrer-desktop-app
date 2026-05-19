@@ -1,6 +1,6 @@
 # Fahrlehrer-Unterrichtsassistent (Desktop Client)
 
-> **Projektstatus:** Bei dieser Applikation handelt es sich um einen funktionalen **MVP (Minimum Viable Product)**. Der Quellcode demonstriert die technische Machbarkeit der Kernarchitektur (dynamisches Rendering von Unterrichtsfolien). Das System ist als skalierbare Plattform für den interaktiven Live-Theorieunterricht konzipiert.
+> **Projektstatus:** Bei dieser Applikation handelt es sich um einen funktionales **MVP (Minimum Viable Product)**. Der Quellcode demonstriert die technische Machbarkeit der Kernarchitektur (dynamisches Rendering von Unterrichtsfolien). Das System ist als skalierbare Plattform für den interaktiven Live-Theorieunterricht konzipiert.
 
 ## 🎯 Kernkonzept & Problemstellung
 
