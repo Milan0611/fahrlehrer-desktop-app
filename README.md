@@ -1,34 +1,19 @@
-# fahrlehrer-app
+# Fahrschul-Lernapplikation (Desktop Client)
 
-An Electron application with React and TypeScript
+Eine modulare Desktop-Anwendung zur interaktiven Vermittlung von Fahrschulinhalten. Der Fokus liegt auf einer skalierbaren Frontend-Architektur, strikter Typensicherheit und einem performanten, dynamischen UI-Rendering.
 
-## Recommended IDE Setup
+## 🛠️ Tech-Stack
+* **Frontend:** React, TypeScript, Tailwind CSS
+* **Desktop-Umgebung:** Electron
+* **State Management:** React Hooks (Zustandsbasiertes Routing ohne Overhead)
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+## 🏗️ Architektur & Design Patterns
+* **Atomic Design:** Konsequente Trennung der UI-Komponenten in handhabbare Einheiten (Atoms wie `LangDropdown` oder `StatBlock`, Layouts und Templates).
+* **Unidirectional Data Flow:** Zentralisiertes State Management auf oberster Ebene (`App.tsx`) mit gezieltem State Lifting für vorhersagbaren Datenfluss.
+* **Dynamic Template-Rendering:** Ein zentraler `SlideRenderer` parst mandantenspezifische JSON-Strukturen und injiziert die Daten flexibel in vordefinierte View-Templates (`GraphicTemplate1`, `TextTemplate1`).
 
-## Project Setup
+## 📊 Datenflussdiagramm
+![Datenflussdiagramm](./Datenflussdiagramm.png)
 
-### Install
-
-```bash
-$ npm install
-```
-
-### Development
-
-```bash
-$ npm run dev
-```
-
-### Build
-
-```bash
-# For windows
-$ npm run build:win
-
-# For macOS
-$ npm run build:mac
-
-# For Linux
-$ npm run build:linux
-```
+## 📺 Demo & Code-Walkthrough
+[Hier Link zum Loom-Video einfügen]
