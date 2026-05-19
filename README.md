@@ -13,7 +13,7 @@ Eine modulare Desktop-Anwendung zur interaktiven Vermittlung von Fahrschulinhalt
 * **Dynamic Template-Rendering:** Ein zentraler `SlideRenderer` parst mandantenspezifische JSON-Strukturen und injiziert die Daten flexibel in vordefinierte View-Templates (`GraphicTemplate1`, `TextTemplate1`).
 
 ## 📊 Datenflussdiagramm
-![Datenflussdiagramm](./Datenflussdiagramm.png)
+<img width="1992" height="1637" alt="Datenflussdiagramm" src="https://github.com/user-attachments/assets/135a7faa-c06f-48eb-bd7f-fdc975065794" />
 
 ## 📺 Demo & Code-Walkthrough
 [Hier Link zum Loom-Video einfügen]
