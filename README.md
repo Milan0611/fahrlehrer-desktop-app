@@ -43,4 +43,4 @@ Um die vollständige Dynamik der Unterrichtsinhalte bei identischem Client zu re
 <img width="1992" height="1637" alt="Datenflussdiagramm" src="https://github.com/user-attachments/assets/135a7faa-c06f-48eb-bd7f-fdc975065794" />
 
 ## Demo & Code-Walkthrough
-[Hier Link zum Loom-Video einfügen]
+(https://www.loom.com/share/6757a5fcf7d14f0a8e51f0f082675dc5)
